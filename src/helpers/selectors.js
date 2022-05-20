@@ -11,7 +11,6 @@ export function getAppointmentsForDay(state, day) {
   for (const items in state.appointments) {
     filteredDays[0].appointments.map(appointment => appointment === Number(items) 
     && arr.push(state.appointments[appointment]) )
-    console.log("arr",arr)
   }
 
   return arr
