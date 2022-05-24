@@ -15,7 +15,7 @@ export default function Application(props) {
   const [state, setState] = useState({
     day: "Monday",
     days: [],
-    appointment: {},
+    appointments: {},
     interviewers: {}
   })
   
@@ -23,6 +23,45 @@ export default function Application(props) {
   dailyAppointments = getAppointmentsForDay(state, state.day)
   const Interviewers = getInterviewersForDay(state, state.day)
 
+  function updateAppointments(appointments) {
+    setState(prev => ({...prev, appointments}))
+  }
+
+
+  async function bookInterview(id, interview) {
+    const appointment = {
+      ...state.appointments[id],
+      interview: { ...interview }
+    };
+    const appointments = {
+      ...state.appointments,
+      [id]: appointment
+    };
+    
+     return axios.put(`/api/appointments/${id}`, {interview}).then(res =>{
+      updateAppointments(appointments)
+      return res
+    })
+   
+  }
+
+  function cancelInterview(id) {
+
+    const appointment = {
+      ...state.appointments[id],
+      interview: null
+    }
+
+    const appointments = {
+      ...state.appointments,
+      [id]: appointment
+    }
+    return axios.delete(`/api/appointments/${id}`)
+      .then(res => {
+        updateAppointments(appointments)
+        return res
+      })
+  }
 
   
 
@@ -35,7 +74,7 @@ export default function Application(props) {
       setState(prev => ({...prev, days: all[0].data, appointments: all[1].data, interviewers: all[2].data }));
     });
   }, [])
-  
+                                                                                                                                                                                                                                                                                                                               
   return (
     <main className="layout">
       <section className="sidebar">
@@ -61,6 +100,7 @@ export default function Application(props) {
       <section className="schedule">
         {dailyAppointments.map(appointment => {
           const interview = getInterview(state , appointment.interview);
+          // console.log("debug", interview)
           return (
             <Appointment 
             key={appointment.id} 
@@ -68,6 +108,7 @@ export default function Application(props) {
             time={appointment.time}
             interview={interview}
             interviewers={Interviewers}
+            bookInterview={ bookInterview}
             />
             )
         })}
