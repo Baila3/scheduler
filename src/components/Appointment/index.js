@@ -11,6 +11,7 @@ import Confirm from "./Confirm";
 
 
 
+
  function Appointment(props) {
   const EMPTY = "EMPTY";
   const SHOW = "SHOW";
@@ -18,6 +19,7 @@ import Confirm from "./Confirm";
   const SAVING = "SAVING"
   const DELETE = "DELETE"
   const CONFIRM = "CONFIRM"
+  const EDIT = "EDIT"
 
  
 
@@ -56,12 +58,14 @@ import Confirm from "./Confirm";
         student={props.interview.student}
         interviewer={props.interview.interviewer.name}
         onDelete={() => transition(CONFIRM)}
+        onEdit={() => transition(EDIT)}
         />
         )}
       {mode === SAVING && <Status message="Saving"/>}
       {mode === CREATE && <Form onCancel={back}  interviewers={props.interviewers} onSave={save}  />}
       {mode === DELETE && <Status message="Deleting" />}
       {mode === CONFIRM && <Confirm onCancel={back} onConfirm={Delete} message="Delete the appointment" /> }
+      {mode === EDIT && <Form onCancel={back} student={props.interview.student} interviewer={props.interview.interviewer} interviewers={props.interviewers}   onSave={save} /> }
 
 
     </article>

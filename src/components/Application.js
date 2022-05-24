@@ -41,7 +41,7 @@ export default function Application(props) {
    
   }
 
-  function cancelInterview(id) {
+  async function cancelInterview(id) {
 
     const appointment = {
       ...state.appointments[id],
@@ -95,7 +95,6 @@ export default function Application(props) {
       <section className="schedule">
         {dailyAppointments.map(appointment => {
           const interview = getInterview(state , appointment.interview);
-          // console.log("debug", interview)
           return (
             <Appointment 
             key={appointment.id} 
