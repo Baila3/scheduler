@@ -10,7 +10,33 @@ export default function useApplicationData() {
     appointments: {},
     interviewers: {}
   })
+
+  const countSpots = (state) => {
+    const currentDay = state.days.find((day) => day.name === state.day);
+    const appointmentIds = currentDay.appointments;
   
+    const spots = appointmentIds.filter((id) => !state.appointments[id].interview).length;
+  
+    return spots;
+  }
+  
+  const updateSpots = (state) => {
+    const updatedState = {...state}
+    const updatedDays = [...state.days];
+    const updatedDay = {...state.days.find((day) => day.name === state.day)}
+  
+    const spots = countSpots(state);
+    updatedDay.spots = spots
+  
+    const updatedDayIndex = state.days.findIndex(day => day.name === state.name)
+    updatedDays[updatedDayIndex] = updatedDay;
+  
+    updatedState.days = updatedDays;
+  
+    return updatedState;
+  }
+
+
   
   
 
