@@ -51,6 +51,7 @@ export default function useApplicationData() {
     };
     
      return axios.put(`/api/appointments/${id}`, {interview}).then(res =>{
+      updateSpots(state)
       setState(prev => ({...prev, appointments}))
     })
    
@@ -69,6 +70,7 @@ export default function useApplicationData() {
     }
     return axios.delete(`/api/appointments/${id}`)
       .then(res => {
+        updateSpots(state)
         setState(prev => ({...prev, appointments}))
       })
   }
