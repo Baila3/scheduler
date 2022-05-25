@@ -13,7 +13,7 @@ import Error from "./Error";
 
 
 
- function Appointment(props) {
+ export default function Appointment(props) {
   const EMPTY = "EMPTY";
   const SHOW = "SHOW";
   const CREATE = "CREATE"
@@ -79,4 +79,3 @@ import Error from "./Error";
 
 }
 
-export default Appointment;
