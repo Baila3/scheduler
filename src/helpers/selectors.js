@@ -43,7 +43,7 @@ export function getInterviewersForDay(state, day) {
       return true;   
     }    
  return false; 
-});  // 👇️ [{id: 1, name: 'Tom'}, {id: 2, name: 'Nick'}] console.log(unique);
+});
   return unique
 }
 
@@ -51,9 +51,8 @@ export function getInterview(state, interview) {
    if (interview === null ) {
     return null
   }
-  console.log("bob",state, interview)
  for (const interviewer in state.interviewers) {
-   if(typeof(interview.interviewer) === "object") {
+   if(interview.interviewer !== null) {
       if (Number(interviewer) === interview.interviewer.id) {
         interview.interviewer = state.interviewers[interviewer]
         return interview
