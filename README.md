@@ -34,3 +34,13 @@ These are the booked interviews
 
 This is a view of the form
 ![Form.png](https://github.com/Baila3/scheduler/blob/master/docs/Screen%20Shot%202022-05-26%20at%203.50.10%20PM.png)
+
+## Dependencies
+
+ - axios: ^0.27.2,
+ - classnames: ^2.2.6,
+ - normalize.css": ^8.0.1,
+ - react: ^16.9.0,
+ - react-dom": ^16.9.0,
+ - react-hooks-testing-library: ^0.6.0,
+ - react-scripts: 3.4.3
