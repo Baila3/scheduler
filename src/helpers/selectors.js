@@ -17,34 +17,26 @@ export function getAppointmentsForDay(state, day) {
 }
 
 export function getInterviewersForDay(state, day) {
-  let arr =[]
 
-  const filteredDays = state.days.filter(date => date.name === day);
-  if (filteredDays.length === 0) {
+  if (!state.days.length) {
     return []
   }
 
-  for (const interviewer in state.interviewers) {
-    for (const items in state.appointments) {
-      const app = state.appointments[items]
-      if (app.interview !== null) {
-         if (app.interview.interviewer === Number(interviewer)) {
-            filteredDays[0].appointments.map(appointment => appointment === Number(items) 
-            &&  arr.push(state.interviewers[interviewer]) )
-          }
-      }
-    }   
+  let interviewersArray = state.days.filter(x => x.name === day)
+  
+  if (interviewersArray.length === 0) {
+    return []
+  } else {
+    interviewersArray = interviewersArray[0].interviewers;
   }
-  const uniqueIds = [];  
-  const unique = arr.filter(element => {   
-    const isDuplicate = uniqueIds.includes(element.id);    
-    if (!isDuplicate) {     
-      uniqueIds.push(element.id);      
-      return true;   
-    }    
- return false; 
-});
-  return unique
+
+  let finalArray = [];
+  for (let interviewer of interviewersArray) {
+    if (interviewer in state.interviewers) {
+    finalArray.push(state.interviewers[interviewer])
+    }
+  }
+  return finalArray
 }
 
 export function getInterview(state, interview) {

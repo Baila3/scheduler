@@ -8,7 +8,8 @@ function InterviewerList(props) {
   
   function onChange(id) {
     props.onChange(id)
-  }
+  };
+
   const Interviewers = props.interviewers.map(people => {
     return (
         <InterviewerListItem
@@ -27,7 +28,7 @@ function InterviewerList(props) {
       </ul>
     </section>
   )
-}
+};
 
 InterviewerList.propTypes = {
   interviewers: PropTypes.array.isRequired

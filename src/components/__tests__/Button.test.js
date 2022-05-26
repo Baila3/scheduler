@@ -1,7 +1,7 @@
 import React from "react";
 
 import { render, cleanup, fireEvent } from "@testing-library/react";
-
+//Button tests for app
 import Button from "components/Button";
 
 afterEach(cleanup);

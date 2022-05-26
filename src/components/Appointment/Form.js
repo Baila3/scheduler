@@ -1,24 +1,26 @@
 import React, { useState } from 'react';
 import Button from "components/Button";
 import InterviewerList from "components/InterviewerList";
-// import Application from 'components/Application';
 
-
+// form component to create appointment
 function Form(props) {
   const [error, setError] = useState("");
   const [student, setStudent] = useState(props.student || "");
   const [interviewer, setInterviewer] = useState(props.interviewer || null);
   
+  //reset form
   const reset = () => {
     setStudent("");
     setInterviewer(null);
   }
   
+  // cancel form
   const cancel = () => {
     props.onCancel()
     reset()
   }
 
+  // validate form
   function validate() {
     if (student === "") {
       setError("Student name cannot be blank");

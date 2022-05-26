@@ -1,5 +1,6 @@
 import React from "react";
 
+//empty component before appointment creation
 function Empty(props) {
   return (
     <main className="appointment__add">
