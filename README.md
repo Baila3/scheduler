@@ -27,4 +27,10 @@ npm run storybook
 
 This is a demo of the app
 
-![App Demo]()
+![App-Demo.gif](https://github.com/Baila3/scheduler/blob/master/docs/Hnet.com-image.gif)
+
+These are the booked interviews
+![Booked-Interviews.png](https://github.com/Baila3/scheduler/blob/master/docs/Screen%20Shot%202022-05-26%20at%203.49.51%20PM.png)
+
+This is a view of the form
+![Form.png](https://github.com/Baila3/scheduler/blob/master/docs/Screen%20Shot%202022-05-26%20at%203.50.10%20PM.png)
