@@ -4,6 +4,7 @@ import "components/InterviewerList.scss";
 import InterviewerListItem from "./InterviewerListItem";
 import PropTypes from 'prop-types'; 
 
+// interviewerlist compoment shows interviewers
 function InterviewerList(props) {
   
   function onChange(id) {

@@ -1,5 +1,6 @@
 import React from "react";
 
+// show component for booked appointments
 function Show(props) {
   return (
     <main className="appointment__card appointment__card--show">

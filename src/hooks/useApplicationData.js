@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
+// helper functions
 export default function useApplicationData() {
   const setDay = day => setState({...state, day });
 
@@ -11,6 +12,7 @@ export default function useApplicationData() {
     interviewers: {}
   })
 
+  // count spots for given day
   const countSpots = (state) => {
     const currentDay = state.days.find((day) => day.name === state.day);
     const appointmentIds = currentDay.appointments;
@@ -20,6 +22,7 @@ export default function useApplicationData() {
     return spots;
   }
   
+  // update spots if needed
   const updateSpots = (state) => {
     const updatedState = {...state}
     const updatedDays = [...state.days];
@@ -39,7 +42,7 @@ export default function useApplicationData() {
 
   
   
-
+// booking an interview
   async function bookInterview(id, interview) {
     const appointment = {
       ...state.appointments[id],
@@ -57,6 +60,7 @@ export default function useApplicationData() {
    
   }
 
+  // deleting an interview
   async function cancelInterview(id) {
 
     const appointment = {

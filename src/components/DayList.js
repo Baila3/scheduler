@@ -2,6 +2,7 @@ import React from "react";
 import DayListItem from "./DayListItem";
 import "components/DayListItem.scss";
 
+// daylist component for days
 export default function DayList(props) {
   const Date = props.days.map(day => {
   return (

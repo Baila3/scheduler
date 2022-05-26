@@ -7,7 +7,7 @@ import useApplicationData from "hooks/useApplicationData";
  
 
 
-
+// application component to handle main components
 export default function Application(props) {
   const {
     state,

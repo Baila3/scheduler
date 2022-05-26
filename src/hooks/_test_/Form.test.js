@@ -6,6 +6,7 @@ import Form from "components/Appointment/Form";
 
 afterEach(cleanup);
 
+// render form test and checks for valid input
 describe("Form", () => {
   const interviewers = [
     {

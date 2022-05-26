@@ -13,7 +13,7 @@ import Error from "./Error";
 
 
 
-
+// appointment component to render appointments
  export default function Appointment(props) {
   const EMPTY = "EMPTY";
   const SHOW = "SHOW";
@@ -27,17 +27,19 @@ import Error from "./Error";
 
  
 
-
+// mode to allow transitioning between components
   const { mode, transition, back } = useVisualMode(
     props.interview ? SHOW : EMPTY,
     );
+
+    // transition after saving in form
     function save(name, interviewer) {
       
       const interview = {
         student: name,
         interviewer
       }
-
+     
       transition(SAVING)
       props.bookInterview(props.id, interview)
       .then(res => {
@@ -47,6 +49,7 @@ import Error from "./Error";
       
     };
     
+    // transition after deleting
    function Delete() {
      transition(DELETE, true)
      props.cancelInterview(props.id) 
@@ -55,7 +58,7 @@ import Error from "./Error";
        })
        .catch((err) => transition(ERROR_DELETE, true))
    };
-   
+
     return (
       <article className="appointment">
       <Header time={props.time} />

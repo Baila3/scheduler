@@ -1,5 +1,6 @@
 import React from "react";
 
+// status component for loading effect
 function Status(props) {
   return (
     <main className="appointment__card appointment__card--status">
