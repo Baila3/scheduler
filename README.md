@@ -27,7 +27,7 @@ npm run storybook
 
 This is a demo of the app
 
-![App-Demo.gif](https://github.com/Baila3/scheduler/blob/master/docs/Hnet.com-image.gif)
+![App-Demo.gif](https://github.com/Baila3/scheduler/blob/master/docs/Hnet-image.gif)
 
 These are the booked interviews
 ![Booked-Interviews.png](https://github.com/Baila3/scheduler/blob/master/docs/Screen%20Shot%202022-05-26%20at%203.49.51%20PM.png)
@@ -39,8 +39,8 @@ This is a view of the form
 
  - axios: ^0.27.2,
  - classnames: ^2.2.6,
- - normalize.css": ^8.0.1,
+ - normalize.css: ^8.0.1,
  - react: ^16.9.0,
- - react-dom": ^16.9.0,
+ - react-dom: ^16.9.0,
  - react-hooks-testing-library: ^0.6.0,
  - react-scripts: 3.4.3
