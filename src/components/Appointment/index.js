@@ -77,7 +77,7 @@ import Error from "./Error";
       {mode === CONFIRM && <Confirm onCancel={back} onConfirm={Delete} message="Delete the appointment" /> }
       {mode === EDIT && <Form  onCancel={back} student={props.interview.student} interviewer={ props.interview.interviewer.name} interviewers={props.interviewers}   onSave={save} /> }
       {mode === ERROR_DELETE && <Error message="Could not delete appointment." onClose={back} />}
-      {mode === ERROR_SAVE && <Error  message="Could not save appointment." onClose={back} />}
+      {mode === ERROR_SAVE && <Error  message="Could not save appointment." onClose={() => {transition(CREATE)}} />}
 
 
     </article>
