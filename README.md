@@ -22,6 +22,14 @@ npm test
 ```sh
 npm run storybook
 ```
+## Setup scheduler api
+![Follow the instructions here to setup the api](https://github.com/lighthouse-labs/scheduler-api)
+
+## Run scheduler api
+
+```sh
+npm run storybook
+```
 
 ## Final Product
 
