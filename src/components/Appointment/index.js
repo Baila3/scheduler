@@ -15,6 +15,7 @@ import Error from "./Error";
 
 // appointment component to render appointments
  export default function Appointment(props) {
+
   const EMPTY = "EMPTY";
   const SHOW = "SHOW";
   const CREATE = "CREATE";
@@ -75,7 +76,7 @@ import Error from "./Error";
       {mode === CREATE && <Form onCancel={back}  interviewers={props.interviewers} onSave={save}  />}
       {mode === DELETE && <Status message="Deleting" />}
       {mode === CONFIRM && <Confirm onCancel={back} onConfirm={Delete} message="Delete the appointment" /> }
-      {mode === EDIT && <Form  onCancel={back} student={props.interview.student} interviewer={ props.interview.interviewer.name} interviewers={props.interviewers}   onSave={save} /> }
+      {mode === EDIT && <Form  onCancel={back} student={props.interview.student} interviewer={props.interview.interviewer.id} interviewers={props.interviewers}   onSave={save} /> }
       {mode === ERROR_DELETE && <Error message="Could not delete appointment." onClose={back} />}
       {mode === ERROR_SAVE && <Error  message="Could not save appointment." onClose={() => {transition(CREATE)}} />}
 

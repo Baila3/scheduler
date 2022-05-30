@@ -3,15 +3,15 @@ import axios from "axios";
 
 // helper functions
 export default function useApplicationData() {
-  const setDay = day => setState({...state, day });
-
+  
   const [state, setState] = useState({
     day: "Monday",
     days: [],
     appointments: {},
     interviewers: {}
   })
-
+  
+  const setDay = day => setState({...state, day });
   // count spots for given day
   const countSpots = (state) => {
     const currentDay = state.days.find((day) => day.name === state.day);
@@ -53,11 +53,10 @@ export default function useApplicationData() {
       [id]: appointment
     };
     
-     return axios.put(`/api/appointments/${id}`, {interview}).then(res =>{
+     return axios.put(`/api/appointments/${id}`, {interview}).then(() => {  
       updateSpots(state)
       setState(prev => ({...prev, appointments}))
     })
-   
   }
 
   // deleting an interview
@@ -72,11 +71,10 @@ export default function useApplicationData() {
       ...state.appointments,
       [id]: appointment
     }
-    return axios.delete(`/api/appointments/${id}`)
-      .then(res => {
-        updateSpots(state)
-        setState(prev => ({...prev, appointments}))
-      })
+    return axios.delete(`/api/appointments/${id}`).then(() => {  
+      updateSpots(state)
+      setState(prev => ({...prev, appointments}))
+    })
   }
   useEffect(() => {
     Promise.all([
