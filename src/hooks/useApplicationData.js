@@ -12,6 +12,17 @@ export default function useApplicationData() {
   })
   
   const setDay = day => setState({...state, day });
+
+  useEffect(() => {
+    Promise.all([
+      axios.get('/api/days'),
+      axios.get('/api/appointments'),
+      axios.get('/api/interviewers')
+    ]).then((all) => {
+      setState(prev => ({...prev, days: all[0].data, appointments: all[1].data, interviewers: all[2].data }));
+    });
+  }, [state.days])
+
   // count spots for given day
   const countSpots = (state) => {
     const currentDay = state.days.find((day) => day.name === state.day);
@@ -39,7 +50,7 @@ export default function useApplicationData() {
     return updatedState;
   }
 
-
+  
   
   
 // booking an interview
@@ -53,7 +64,7 @@ export default function useApplicationData() {
       [id]: appointment
     };
     
-     return axios.put(`/api/appointments/${id}`, {interview}).then(() => {  
+      return axios.put(`/api/appointments/${id}`, {interview}).then(() => {  
       updateSpots(state)
       setState(prev => ({...prev, appointments}))
     })
@@ -76,15 +87,6 @@ export default function useApplicationData() {
       setState(prev => ({...prev, appointments}))
     })
   }
-  useEffect(() => {
-    Promise.all([
-      axios.get('/api/days'),
-      axios.get('/api/appointments'),
-      axios.get('/api/interviewers')
-    ]).then((all) => {
-      setState(prev => ({...prev, days: all[0].data, appointments: all[1].data, interviewers: all[2].data }));
-    });
-  }, [state.days])
 
   return {state, setDay, bookInterview, cancelInterview}
 }

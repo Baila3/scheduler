@@ -10,7 +10,7 @@ function Confirm(props) {
         <Button onClick={props.onCancel} danger>Cancel</Button>
         <Button onClick={props.onConfirm} danger>Confirm</Button>
       </section>
-   </main>
+    </main>
   )
 }
 

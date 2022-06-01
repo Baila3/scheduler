@@ -4,7 +4,7 @@ import DayList from "./DayList";
 import Appointment from "./Appointment";
 import { getAppointmentsForDay, getInterview, getInterviewersForDay } from "helpers/selectors";
 import useApplicationData from "hooks/useApplicationData";
- 
+
 
 
 // application component to handle main components
@@ -20,7 +20,6 @@ export default function Application(props) {
   dailyAppointments = getAppointmentsForDay(state, state.day);
   const Interviewers = getInterviewersForDay(state, state.day);
 
-                                                                                                                                                                                                                                                                                                                               
   return (
     <main className="layout">
       <section className="sidebar">

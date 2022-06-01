@@ -42,19 +42,19 @@ export function getInterviewersForDay(state, day) {
 
 // retrive interview
 export function getInterview(state, interview) {
-   if (interview === null ) {
+  if (interview === null ) {
     return null;
   }
- for (const interviewer in state.interviewers) {
-   if(interview.interviewer !== null) {
+  for (const interviewer in state.interviewers) {
+    if(interview.interviewer !== null) {
       if (Number(interviewer) === interview.interviewer.id) {
         interview.interviewer = state.interviewers[interviewer]
         return interview;
       }
-   }
-   if (Number(interviewer) === interview.interviewer) {
+    }
+    if (Number(interviewer) === interview.interviewer) {
     interview.interviewer = state.interviewers[interviewer]
-   return interview;
- }
-}
+    return interview;
+    }
+  }
 }
